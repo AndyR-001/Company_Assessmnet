@@ -17,7 +17,8 @@ cursor = conn.cursor()
 
 @app.route('/')
 def index():
-    return render_template('WebsiteDevelopment.html') #render_template('WebsiteDevelopment.html')
+    #render_template('WebsiteDevelopment.html')
+    return render_template('WebsiteDevelopment.html') 
 
 @app.route("/submit", methods=["POST"])
 def submit():
@@ -46,7 +47,7 @@ def submit():
 
 @app.route('/results', methods=['GET'])
 def results():
-     # Define the SQL query to retrieve the answers from the survey results
+    # Define the SQL query to retrieve the answers from the survey results
     query = "SELECT * FROM survey_data WHERE company_name = %s"
 
     # Execute the query
@@ -110,17 +111,38 @@ def results():
         "physicalAccessRevoked": 2,
         "gdprCompliant": 5
         }
-       
- 
-# Iterate through the answers and add the corresponding weights to the risk score 
+       #Multiple choice questions
+    password_requirements = {
+        "no": 3,
+        "uppercase": 1,
+        "numeric": 1,
+        "special": 1,
+        "min-8": 1,
+        "all": 0    
+            }
+    third_party_assessment = {
+        "no": 3,
+        "onboarding": 2,
+        "12": 0,
+        "2": 0,
+        "2+": 1,
+        "breach": 2   
+            }
+
+    # Iterate through the answers and add the corresponding weights to the risk score 
     for question, answer in answers.items():
         if question == "securityBreach" and answer == "yes":
             risk_score += questions[question]
         elif answer == "no" and question != "securityBreach":
             risk_score += questions[question]
+        elif question == "password_Requirements":
+            risk_score += password_requirements[answer]
+        elif question == "thirdPartyAssessment":
+            risk_score += third_party_assessment[answer]
+    
             
     # Calculate the percentage risk score
-    total_possible_risk_score = sum(questions.values())
+    total_possible_risk_score = sum(questions.values()) + sum(password_requirements.values()) + sum(third_party_assessment.values())
     percentage_risk_score = risk_score / total_possible_risk_score
     percentage_risk_score = risk_score / total_possible_risk_score * 100
     percentage_risk_score = int(percentage_risk_score)
@@ -137,11 +159,11 @@ def results():
     else:
         output_message = "WARNING: This score is critically High, It is urgent that you seek assistance to implement the security reccomendations below!"
 
-# Initialize the recommendations variable
+    # Initialize the recommendations variable
     recommendations = []  
     
     companyName = request.args.get('companyName')
-      # Define the SQL query to retrieve the dataEncryption value from the survey results
+    # Define the SQL query to retrieve the dataEncryption value from the survey results
     query = "SELECT confidentialDataEncryption FROM survey_data WHERE company_name = %s"
 
     # Execute the query
@@ -155,7 +177,7 @@ def results():
             answer = row[i]
             answers[column_name] = answer
     # Reccomended improvements for the company based on their answers
-    
+        # Recommendations for industry relevant regulations
         if answers["industry"] == "financial_services":
             recommendations.append("As you are in the financial services industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the General Data Protection Regulation (GDPR).")
         elif answers["industry"] == "technology":
@@ -189,7 +211,7 @@ def results():
         elif answers["employee_count"] == "1000+" and answers["num_security_employees"] in ["0", "1-3", "4-6", "7-10", "10-15"]:
             recommendations.append("We recommend that companies with 1000+ employees have at least 20 security personnel. As your company has fewer than 20 security personnel, we recommend that you consider increasing the size of your security team to ensure that you are properly staffed in order to protect against cyber threats. This includes regular security assessments and audits, implementing robust incident response plans and regularly reviewing and updating security policies and procedures.")
     
-    # Recommendations for "Has your company suffered a Security breach in the last 12 months?"
+        # Recommendations for "Has your company suffered a Security breach in the last 12 months?"
         if answers["securityBreach"] == "yes":
             recommendations.append(" As your company has suffered a security breach, it's important to carefully review what happened and how it occurred. One helpful resource for this process is the ICO (Information Commissioner's Office) Accountability Framework. This framework provides guidance on how to respond to and monitor breaches. <a href=https://ico.org.uk/for-organisations/accountability-framework/breach-response-and-monitoring/#incidents'>ICO's guidance</a>. Additionally, it may be useful to review any relevant industry standards or frameworks, such as the NIST Cybersecurity Framework, to identify any potential weaknesses in your current security measures and determine what steps you can take to strengthen them.")
 
@@ -353,7 +375,7 @@ def results():
             
         break
 
-    # Fetch the next row
+        # Fetch the next row
         row = cursor.fetchall()
     
     return render_template('results.html', companyName=companyName, recommendations=recommendations,percentage_risk_score=percentage_risk_score, output_message=output_message)
