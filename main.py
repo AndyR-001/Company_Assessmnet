@@ -59,30 +59,33 @@ def submit():
     cursor.execute(query, values)
     conn.commit()
 
-    return redirect(url_for('results', companyName = request.form['company_name']))
+    return redirect(url_for('results', id = cursor.lastrowid))
 
 
 @app.route('/results', methods=['GET'])
 def results():
     # Define the SQL query to retrieve the answers from the survey results
-    query = "SELECT * FROM survey_data WHERE company_name = %s"
+    query = "SELECT * FROM survey_data WHERE id = %s"
 
     # Execute the query
-    cursor.execute(query, (request.args.get('companyName'),))
+    cursor.execute(query, (request.args.get('id'),))
 
-    # Initialize the answers dictionary
+    # Initialise the answers dictionary
     answers = {}
 
     # Retrieve all survey data for the selected company from the database
-    for row in cursor.fetchall():
-    # Iterate through the row and add the answers to the dictionary
+    results = cursor.fetchall()
+
+    # Assign the company name to a variable
+    company_name = results[0][1]
+
+    # Iterate through the rows and add the answers to the dictionary
+    for row in results:
         for i in range(len(row)):
             column_name = cursor.column_names[i]
             answer = row[i]
             answers[column_name] = answer
-
-        row = cursor.fetchall()
-
+            
     # Define the risk score variable
     risk_score = 0
      # Define the questions and corresponding points
@@ -174,13 +177,13 @@ def results():
     else:
         output_message = "WARNING: This score is critically High, It is urgent that you seek assistance to implement the security reccomendations below!"
 
-    # Initialize the recommendations variable
+    # Initialise the recommendations variable
     recommendations = []  
     
-    companyName = request.args.get('companyName')
+    id = request.args.get('id')
 
     # Execute the query
-    cursor.execute(query, (companyName,))
+    cursor.execute(query, (id,))
 
    # Retrieve all survey data for the selected company from the database
     for row in cursor.fetchall():
@@ -348,19 +351,16 @@ def results():
         if answers["cybersecurityResponsibilities"] == "no":
             recommendations.append("Assigning cybersecurity responsibilities to specific people in the organisation is crucial for protecting against potential cyber-related threats. Without clear assignment, risks and incidents may go unidentified and unresolved. We recommend implementing this structure to enhance overall security of the organisation")    
             
-        #Reccomendations for "Do you gather security assessments of your third parties, monitor their performance and security risks(specifically any that might have access to any of your data"
-        if answers["thirdPartyAssessment"] == "no":
-            recommendations.append("It is important to regularly gather security assessments of third parties, especially those that may have access to your organisation's data. These assessments can help you identify potential security risks and vulnerabilities, and can help you to make informed decisions about whether to continue doing business with a particular third party. We recommend implementing a process for conducting security assessments at least every 12 months.")
-        elif answers["thirdPartyAssessment"] == "onboarding":
-            recommendations.append("While conducting security assessments only on onboarding is a step in the right direction, it is important to keep in mind that security risks and vulnerabilities can change over time. We recommend conducting security assessments periodically at least every 12 months in order to stay aware of any changes and address them as they arise.")
-        elif answers["thirdPartyAssessment"] == "12":
-            recommendations.append("Performing security assessments on a yearly basis is a good practice, although it is important to keep in mind that the threat landscape can change rapidly, therefore it is important to stay aware of any emerging risks. We recommend monitoring your third party’s security posture  in addition to the yearly assessments.")
-        elif answers["thirdPartyAssessment"] == "2":
-            recommendations.append("Performing security assessments every 2 years can leave your organisation open to risks, as the threat landscape can change quickly. We recommend conducting security assessments at least every 12 months to stay aware of any changes and address them as they arise.")
-        elif answers["thirdPartyAssessment"] == "2+":
-            recommendations.append("Performing security assessments infrequently leaves your organisation open to risks, as the threat landscape can change quickly. We recommend conducting security assessments at least every 12 months to stay aware of any changes and address them as they arise.")
-        elif answers["thirdPartyAssessment"] == "breach":
-            recommendations.append("It is a good practice to conduct security assessments in the event of a third party security breach. It is also important to review your security practices and assess all your third parties at least once a year.")  
+        thirdPartyAssessment = answers["thirdPartyAssessment"]
+        switcher = {
+            "no": "It is important to regularly gather security assessments of third parties, especially those that may have access to your organisation's data. These assessments can help you identify potential security risks and vulnerabilities, and can help you to make informed decisions about whether to continue doing business with a particular third party. We recommend implementing a process for conducting security assessments at least every 12 months.",
+            "onboarding": "While conducting security assessments only on onboarding is a step in the right direction, it is important to keep in mind that security risks and vulnerabilities can change over time. We recommend conducting security assessments periodically at least every 12 months in order to stay aware of any changes and address them as they arise.",
+            "12": "Performing security assessments on a yearly basis is a good practice, although it is important to keep in mind that the threat landscape can change rapidly, therefore it is important to stay aware of any emerging risks. We recommend monitoring your third party’s security posture  in addition to the yearly assessments.",
+            "2": "Performing security assessments every 2 years can leave your organisation open to risks, as the threat landscape can change quickly. We recommend conducting security assessments at least every 12 months to stay aware of any changes and address them as they arise.",
+            "2+": "Performing security assessments infrequently leaves your organisation open to risks, as the threat landscape can change quickly. We recommend conducting security assessments at least every 12 months to stay aware of any changes and address them as they arise.",
+            "breach": "It is a good practice to conduct security assessments in the event of a third party security breach. It is also important to review your security practices and assess all your third parties at least once a year."
+            }
+        recommendations.append(switcher[thirdPartyAssessment])
             
         #Recommendations for "Physical access controls (such as fences, locks, alarms and signage) are implemented and logs are maintained to determine who is allowed access and who has gained access to your on site premise?"
         if answers["physicalAccessControls"] == "no":
@@ -391,7 +391,7 @@ def results():
         # Fetch the next row
         row = cursor.fetchall()
     
-    return render_template('results.html', companyName=companyName, recommendations=recommendations,percentage_risk_score=percentage_risk_score, output_message=output_message)
+    return render_template('results.html', company_name=company_name, recommendations=recommendations,percentage_risk_score=percentage_risk_score, output_message=output_message)
     cursor.close()
     conn.close()
     
