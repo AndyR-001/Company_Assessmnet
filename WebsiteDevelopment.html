@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
 		<style>
@@ -85,7 +85,7 @@
 			
 			.button-container {
 			clear: both;
-			padding: 25px;
+			padding: 5px;
 			}
 			
 			button {
@@ -134,7 +134,12 @@
 			color: #333;
 			}
 			
-				.page {
+			p {
+			position: relative;
+			font-weight: bold;
+			font-size: 18px;
+			}
+			.page {
 			display: none;
 			}
 			
@@ -145,11 +150,8 @@
 			.form-submit {
 			width: 100%;
 			background-color: #4CAF50;
-			color: white;
-			padding: 14px 20px;
-			margin: 8px 0;
+			color: white;;
 			border: none;
-			border-radius: 4px;
 			cursor: pointer;
 			font-size: 18px;
 			font-weight: bold;
@@ -184,6 +186,7 @@
 				
 					<div class="page active" id="page-1">
 					
+					<p>Page 1 of 7</p>
 				
 				<h2>Information About the Organisation</h2>
 				<label class="form-label">Company name:</label>
@@ -219,12 +222,12 @@
 					
 					
 						<div class="nav-buttons">
-						<button onclick="showPage(2)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(2)">Next</button>
 						</div>
 						</div>
 						
 						<div class="page" id="page-2">
-						
+						<p>Page 2 of 7</p>
 					
 					<h2>Identity and Access Management</h2>
 					<label class="form-label">Does the company set password complexity requirements and require periodic changes? Please Select the requirements that apply.</label><br>
@@ -246,17 +249,17 @@
 					
 					
 						<div class="nav-buttons">
-						<button onclick="showPage(3)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(3)">Next</button>
 						</div>
 						<div class="form-container">
 						<div class="nav-buttons">
-						<button onclick="showPage(1)">Previous</button>
+						<button type="button" onclick="event.preventDefault(); showPage(1)">Previous</button>
 						</div>
 						</div>
 						
 						</div>
 						<div class="page" id="page-3">
-						
+						<p>Page 3 of 7</p>
 					
 					<h2>Event and incident response, continuity of operations</h2>
 					<label class="form-label">Do you have a disaster recovery and incident response plan in place?</label><br>
@@ -267,8 +270,8 @@
 					<input class="form-radio" type="radio" name="incidentResponseTeam" value="no" required> No<br>
 					<label class="form-label">Do you periodically test your Incident Response Plan with the incident handling team?</label><br>
 					<input class="form-radio" type="radio" name="incidentResponsePlanTesting" value="yes" required> Yes<br>
-					<input class="form-radio" type="radio" name="incidentResponsePlanTesting" value="no" required> No<br>
-					<label"class="form-label">Do you have security tools (IDS, IPS, etc.) and processes in place to monitor use of information processing facilities and to take corrective action to respond to system irregularities/anomalies?</label><br>
+					<input class="form-radio" type="radio" name="incidentResponsePlanTesting" value="no" required> No<br><br>
+					<label"class="form-label" style="font-weight: bold;">Do you have security tools (IDS, IPS, etc.) and processes in place to monitor use of information processing facilities and to take corrective action to respond to system irregularities/anomalies?</label><br>
 					<input class="form-radio" type="radio" name="securityTools" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityTools" value="no" required> No<br>
 					<label class="form-label">Does the organisation have Cyber insurance coverage?</label><br>
@@ -278,19 +281,20 @@
 					<input class="form-radio" type="radio" name="dataBackups" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="dataBackups" value="no" required> No<br>
 					
-					
+			
+
 						<div class="nav-buttons">
-						<button onclick="showPage(4)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(4)">Next</button>
 						</div>
 						<div class="form-container">
 						<div class="nav-buttons">
-						<button onclick="showPage(2)">Previous</button>
+						<button type="button" onclick="event.preventDefault(); showPage(2)">Previous</button>
 						</div>
 						</div>
 						
 						</div>
-						<div class="page" id="page-4">
-						
+						<div  class="page" id="page-4">
+						<p>Page 4 of 7</p>
 					
 					<h2>IT Security Controls</h2>
 					<label class="form-label">Is Data destroyed or securely removed from IT assets prior to redeployment and at end of life?</label><br>
@@ -318,18 +322,20 @@
 					<input class="form-radio" type="radio" name="securityApplications" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityApplications" value="no" required> No<br>
 				
+				
+					
 						<div class="nav-buttons">
-						<button onclick="showPage(5)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(5)">Next</button>
 						</div>
 						<div class="form-container">
 						<div class="nav-buttons">
-						<button onclick="showPage(3)">Previous</button>
+						<button type="button" onclick="event.preventDefault(); showPage(3)">Previous</button>
 						</div>
 						</div>
 						
 						</div>
 						<div class="page" id="page-5">
-						
+						<p>Page 5 of 7</p>
 					
 					<h2>Risk Threat and vulnerability Management</h2>
 					<label class="form-label">Relevant threat information is gathered and cybersecurity vulnerability assessments are performed periodically and shared to stakeholders?</label><br>
@@ -350,18 +356,18 @@
 					
 					
 						<div class="nav-buttons">
-						<button onclick="showPage(6)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(6)">Next</button>
 						</div>
 						<div class="form-container">
 						<div class="nav-buttons">
-						<button onclick="showPage(4)">Previous</button>
+						<button type="button" onclick="event.preventDefault(); showPage(4)">Previous</button>
 						</div>
 						</div>
 						
 						</div>
 						<div class="page" id="page-6">
-						
-					
+						<p>Page 6 of 7</p>
+				
 					
 					<h2>Workforce management</h2>
 					<label class="form-label">Is there a Human Resource policy approved by management, communicated to constituents and an owner to maintain and review?</label><br>
@@ -382,17 +388,17 @@
 					
 					
 						<div class="nav-buttons">
-						<button onclick="showPage(7)">Next</button>
+						<button type="button" onclick="event.preventDefault(); showPage(7)">Next</button>
 						</div>
 						<div class="form-container">
 						<div class="nav-buttons">
-						<button onclick="showPage(5)">Previous</button>
+						<button type="button" onclick="event.preventDefault(); showPage(5)">Previous</button>
 						</div>
 						</div>
 						
 						</div>
 						<div class="page" id="page-7">
-						
+						<p>Page 7 of 7</p>
 					
 					<h2>Standards, Processes and Compliance</h2>
 					<label class="form-label">Do you gather security assessments of your third parties, monitor their performance and security risks(specifically any that might have access to any of your data)</label><br>
@@ -421,17 +427,16 @@
 					<input class="form-radio" type="radio" name="gdprCompliant" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="gdprCompliant" value="no" required> No<br>
 					<input class="form-radio" type="radio" name="gdprCompliant" value="na" required> N/A<br>
-					
-				
-						<div class="form-container">
-						<div class="nav-buttons">
-						<button onclick="showPage(6)">Previous</button>
-						</div>
-						</div>
 				
 					<div class="button-container">
-						<input class="form-submit" type="submit" value="Submit"/>
+						<input class="form-submit" type="submit" value="Submit" onclick="document.forms['securityForm'].submit()"/>
 					</div>
+					
+					<div class="form-container">
+						<div class="nav-buttons">
+						<button type="button" onclick="event.preventDefault(); showPage(6)">Previous</button>
+						</div>
+						</div>
 				</form>
 			</div>
 			
