@@ -194,27 +194,20 @@ def results():
             answers[column_name] = answer
     # Reccomended improvements for the company based on their answers
         # Recommendations for industry relevant regulations
-        if answers["industry"] == "financial_services":
-            recommendations.append("As you are in the financial services industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the General Data Protection Regulation (GDPR).")
-        elif answers["industry"] == "technology":
-            recommendations.append("As you are in the technology industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the Federal Risk and Authorisation Management Program (FedRAMP).")
-        elif answers["industry"] == "healthcare":
-            recommendations.append("As you are in the healthcare industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR).")
-        elif answers["industry"] == "manufacturing":
-            recommendations.append("As you are in the manufacturing industry, we recommend that you review regulations such as the Occupational Safety and Health Administration (OSHA) and the Environmental Protection Agency (EPA).")
-        elif answers["industry"] == "retail":
-            recommendations.append("As you are in the retail industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the Fair Credit Reporting Act (FCRA).")
-        elif answers["industry"] == "government":
-            recommendations.append("As you are in the government industry, we recommend that you review regulations such as the Federal Risk and Authorisation Management Program (FedRAMP) and the Federal Information Security Modernisation Act (FISMA).")
-        elif answers["industry"] == "education":
-            recommendations.append("As you are in the education industry, we recommend that you review regulations such as the Family Educational Rights and Privacy Act (FERPA) and the Children's Online Privacy Protection Act (COPPA).")
-        elif answers["industry"] == "transportation":
-            recommendations.append("As you are in the transportation industry, we recommend that you review regulations such as the Department of Transportation (DOT) and the International Air Transport Association (IATA).")
-        elif answers["industry"] == "energy":
-            recommendations.append("As you are in the energy industry, we recommend that you review regulations such as the North American Electric Reliability Corporation (NERC) and the Occupational Safety and Health Administration (OSHA).")
-        else:
-            recommendations.append("Please refer to your local jurisdiction regulations and standards for further guidence on improving your security.")
-    
+        industry = answers["industry"]
+        industry_reccomendations = {
+        "financial_services": "As you are in the financial services industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the General Data Protection Regulation (GDPR).",
+        "technology": "As you are in the technology industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the Federal Risk and Authorisation Management Program (FedRAMP).",
+        "healthcare": "As you are in the healthcare industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR).",
+        "manufacturing": "As you are in the manufacturing industry, we recommend that you review regulations such as the Occupational Safety and Health Administration (OSHA) and the Environmental Protection Agency (EPA).",
+        "retail": "As you are in the retail industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the Fair Credit Reporting Act (FCRA).",
+        "government": "As you are in the government industry, we recommend that you review regulations such as the Federal Risk and Authorisation Management Program (FedRAMP) and the Federal Information Security Modernisation Act (FISMA).",
+        "education": "As you are in the education industry, we recommend that you review regulations such as the Family Educational Rights and Privacy Act (FERPA) and the Children's Online Privacy Protection Act (COPPA).",
+        "transportation": "As you are in the transportation industry, we recommend that you review regulations such as the Department of Transportation (DOT) and the International Air Transport Association (IATA).",
+        "energy": "As you are in the energy industry, we recommend that you review regulations such as the North American Electric Reliability Corporation (NERC) and the Occupational Safety and Health Administration (OSHA).",
+        "other": "Please refer to your local jurisdiction regulations and standards for further guidence on improving your security."
+        }
+        recommendations.append(industry_reccomendations[industry])
         # Recommendations for employee count and security team size
         if answers["employee_count"] == "1-50" and answers["num_security_employees"] == "0":
             recommendations.append("We recomend that companies with 1-50 employees have at least one person dedicated to security. As your company does not have any security personnel, we recommend that you consider adding at least one person to your team or assigning this responsibility to an existing employee that can implement some of the reccomendations below.")
@@ -232,16 +225,15 @@ def results():
             recommendations.append(" As your company has suffered a security breach, it's important to carefully review what happened and how it occurred. One helpful resource for this process is the ICO (Information Commissioner's Office) Accountability Framework. This framework provides guidance on how to respond to and monitor breaches. <a href=https://ico.org.uk/for-organisations/accountability-framework/breach-response-and-monitoring/#incidents'>ICO's guidance</a>. Additionally, it may be useful to review any relevant industry standards or frameworks, such as the NIST Cybersecurity Framework, to identify any potential weaknesses in your current security measures and determine what steps you can take to strengthen them.")
 
         # Recommendations for "Does the company set password complexity requirements and require periodic changes?"
-        if answers["password_Requirements"] == "no":
-            recommendations.append("It is important to set password complexity requirements and require periodic changes in order to protect against the risk of brute force attacks and other types of password cracking. According to the (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines, password complexity should have a minimum length of 12-14 characters and be complex and different from previous passwords. We recommend setting requirements such as minimum length, upper and lowercase characters, numbers and special characters, and requiring that passwords be changed at least every 90 days.")
-        elif answers["password_Requirements"] == "uppercase":
-            recommendations.append("Requiring uppercase characters is a good start for your password complexity requirements, but it is important to also have a minimum length, lowercase characters, numbers, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.")
-        elif answers["password_Requirements"] == "numeric":
-            recommendations.append("Requiring numeric characters is a good start for your password complexity requirements, but it is important to also have a minimum length, uppercase and lowercase characters, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.")
-        elif answers["password_Requirements"] == "special":
-            recommendations.append("Requiring special characters is a good start for your password complexity requirements, but it is important to also have a minimum length, uppercase and lowercase characters, numbers as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.")
-        elif answers["password_Requirements"] == "min-8":
-            recommendations.append("A minimum length of 8 characters is a good start for your password complexity requirements, but it is important to also have uppercase and lowercase characters, numbers, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.")
+        password_Requirements = answers["password_Requirements"]
+        password_Recommendations = {
+        "no": "It is important to set password complexity requirements and require periodic changes in order to protect against the risk of brute force attacks and other types of password cracking. According to the (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines, password complexity should have a minimum length of 12-14 characters and be complex and different from previous passwords. We recommend setting requirements such as minimum length, upper and lowercase characters, numbers and special characters, and requiring that passwords be changed at least every 90 days.",
+        "uppercase": "Requiring uppercase characters is a good start for your password complexity requirements, but it is important to also have a minimum length, lowercase characters, numbers, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.",
+        "numeric": "Requiring numeric characters is a good start for your password complexity requirements, but it is important to also have a minimum length, uppercase and lowercase characters, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.",
+        "special": "Requiring special characters is a good start for your password complexity requirements, but it is important to also have a minimum length, uppercase and lowercase characters, numbers as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords.",
+        "min-8": "A minimum length of 8 characters is a good start for your password complexity requirements, but it is important to also have uppercase and lowercase characters, numbers, special characters as well as requiring periodic password changes. This will help protect against the risk of brute force attacks and other types of password cracking. Remember, (<a href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf'>NIST.SP.800-63-3. 1</a>) guidelines recommend a minimum length of 12-14 characters and be complex and different from previous passwords."
+        }
+        recommendations.append(password_Recommendations[password_Requirements])
 
         # Recommendations for "Is there a process to remove access to systems containing scoped data within 24 hours for terminated constituents?"
         if answers["accessRemoval"] == "no":
@@ -352,7 +344,7 @@ def results():
             recommendations.append("Assigning cybersecurity responsibilities to specific people in the organisation is crucial for protecting against potential cyber-related threats. Without clear assignment, risks and incidents may go unidentified and unresolved. We recommend implementing this structure to enhance overall security of the organisation")    
             
         thirdPartyAssessment = answers["thirdPartyAssessment"]
-        switcher = {
+        thirdPartyAssessmentRecommendations = {
             "no": "It is important to regularly gather security assessments of third parties, especially those that may have access to your organisation's data. These assessments can help you identify potential security risks and vulnerabilities, and can help you to make informed decisions about whether to continue doing business with a particular third party. We recommend implementing a process for conducting security assessments at least every 12 months.",
             "onboarding": "While conducting security assessments only on onboarding is a step in the right direction, it is important to keep in mind that security risks and vulnerabilities can change over time. We recommend conducting security assessments periodically at least every 12 months in order to stay aware of any changes and address them as they arise.",
             "12": "Performing security assessments on a yearly basis is a good practice, although it is important to keep in mind that the threat landscape can change rapidly, therefore it is important to stay aware of any emerging risks. We recommend monitoring your third party’s security posture  in addition to the yearly assessments.",
@@ -360,7 +352,7 @@ def results():
             "2+": "Performing security assessments infrequently leaves your organisation open to risks, as the threat landscape can change quickly. We recommend conducting security assessments at least every 12 months to stay aware of any changes and address them as they arise.",
             "breach": "It is a good practice to conduct security assessments in the event of a third party security breach. It is also important to review your security practices and assess all your third parties at least once a year."
             }
-        recommendations.append(switcher[thirdPartyAssessment])
+        recommendations.append(thirdPartyAssessmentRecommendations[thirdPartyAssessment])
             
         #Recommendations for "Physical access controls (such as fences, locks, alarms and signage) are implemented and logs are maintained to determine who is allowed access and who has gained access to your on site premise?"
         if answers["physicalAccessControls"] == "no":
