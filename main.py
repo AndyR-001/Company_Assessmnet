@@ -380,14 +380,14 @@ def results():
             
         break
 
-        # Fetch the next row
-        row = cursor.fetchall()
-    
+    #Return results to a template HTML document
     return render_template('results.html', company_name=company_name, recommendations=recommendations,percentage_risk_score=percentage_risk_score, output_message=output_message)
+    
+    #Close cursor and connection
     cursor.close()
     conn.close()
     
-   
+#Start Flask application in debug mode   
 if __name__ == '__main__':
     app.debug = True
     app.run()
