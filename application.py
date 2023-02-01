@@ -4,6 +4,7 @@ print("Content-Type: text/html\n")
 import mysql.connector
 from flask import Flask, request, redirect, render_template, url_for, session
 import os
+os.environ["FLASK_APP"] = "application.py"
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
