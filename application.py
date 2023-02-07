@@ -6,11 +6,9 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
-@app.route('/')
-def index():
-    #render_template('Website.html')
-    return render_template('Website.html') 
-
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
 
     
 #Start Flask application in debug mode   
