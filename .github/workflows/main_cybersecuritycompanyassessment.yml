@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'cybersecuritycompanyassessment'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B2FE583CE0C4AD3A7C680EAC6AC083A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_708D047AE3BC441AA4EB795622F8473B }}
