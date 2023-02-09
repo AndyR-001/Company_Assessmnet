@@ -1,18 +1,21 @@
+import pyodbc
 print("Content-Type: text/html\n")
 
-import mysql.connector
 from flask import Flask, request, redirect, render_template, url_for, session
 import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-conn = mysql.connector.connect(
-        host="companyassessmentserver.database.windows.net", 
-        port="1433", 
-        user="cmparob1", 
-        password="%`RdK?J=3L<B>z:g", 
-        database="Assessment_Results"
-    )
+conn = pyodbc.connect(
+    "Driver={ODBC Driver 18 for SQL Server};"
+    "Server=tcp:companyassessmentserver.database.windows.net,1433;"
+    "Database=Assessment_Results;"
+    "Uid=cmparob1;"
+    "Pwd=%`RdK?J=3L<B>z:g;"
+    "Encrypt=yes;"
+    "TrustServerCertificate=no;"
+    "Connection Timeout=30;"
+)
 cursor = conn.cursor()
 
 @app.route('/')
