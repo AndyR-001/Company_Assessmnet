@@ -7,11 +7,11 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 conn = mysql.connector.connect(
-        host="localhost", 
-        port="3306", 
-        user="root", 
-        password="", 
-        database="assessment_results"
+        host="companyassessmentserver.database.windows.net", 
+        port="1433", 
+        user="cmparob1", 
+        password="%`RdK?J=3L<B>z:g", 
+        database="Assessment_Results"
     )
 cursor = conn.cursor()
 
