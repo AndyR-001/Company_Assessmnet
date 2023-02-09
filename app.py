@@ -25,26 +25,29 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    form_data = request.form
-    # Check if all required fields are present in form_data
-    required_fields = ['company_name', 'industry', 'employee_count', 'num_security_employees', 'securityBreach', 'passwordRequirements', 'accessRemoval', 'multifactorCredentials', 'logicalAccess', 'disasterRecoveryPlan', 'incidentResponseTeam', 'incidentResponsePlanTesting', 'securityTools', 'cyberInsurance', 'dataBackups', 'dataRemoval', 'externalDevices', 'cybersecurityArchitecture', 'assetInventory', 'networkProtection', 'confidentialDataEncryption', 'leastFunctionality', 'securityApplications', 'vulnerability_assessments', 'cyber_risk_management', 'risk_management_program', 'risk_mitigation_strategies', 'vendor_management', 'humanResourcePolicy', 'secureCoding', 'securityAwareness', 'backgroundChecks', 'cybersecurityResponsibilities', 'thirdPartyAssessment', 'physicalAccessControls', 'changeManagementProcess', 'documentedSecurityPolicies', 'policiesReviewed', 'physicalAccessRevoked', 'gdprCompliant']
-    for field in required_fields:
-        if field not in form_data:
-            session['form_data'] = form_data
-            return '<script>alert("Error: You have not answered all questions, please go back and answer all of the questions"); history.back();</script>'.format(field)
-        if not form_data[field]:
-            session['form_data'] = form_data
-            return '<script>alert("Error: You have not answered all questions, please go back and answer all of the questions"); history.back();</script>'.format(field)
+    try:
+        form_data = request.form
+        # Check if all required fields are present in form_data
+        required_fields = ['company_name', 'industry', 'employee_count', 'num_security_employees', 'securityBreach', 'passwordRequirements', 'accessRemoval', 'multifactorCredentials', 'logicalAccess', 'disasterRecoveryPlan', 'incidentResponseTeam', 'incidentResponsePlanTesting', 'securityTools', 'cyberInsurance', 'dataBackups', 'dataRemoval', 'externalDevices', 'cybersecurityArchitecture', 'assetInventory', 'networkProtection', 'confidentialDataEncryption', 'leastFunctionality', 'securityApplications', 'vulnerability_assessments', 'cyber_risk_management', 'risk_management_program', 'risk_mitigation_strategies', 'vendor_management', 'humanResourcePolicy', 'secureCoding', 'securityAwareness', 'backgroundChecks', 'cybersecurityResponsibilities', 'thirdPartyAssessment', 'physicalAccessControls', 'changeManagementProcess', 'documentedSecurityPolicies', 'policiesReviewed', 'physicalAccessRevoked', 'gdprCompliant']
+        for field in required_fields:
+            if field not in form_data:
+                session['form_data'] = form_data
+                return '<script>alert("Error: You have not answered all questions, please go back and answer all of the questions"); history.back();</script>'.format(field)
+            if not form_data[field]:
+                session['form_data'] = form_data
+                return '<script>alert("Error: You have not answered all questions, please go back and answer all of the questions"); history.back();</script>'.format(field)
 
-    # Insert the form data into the survey_data table
-    query = "INSERT INTO survey_data (company_name, industry, employee_count, num_security_employees, securityBreach, passwordRequirements, accessRemoval, multifactorCredentials, logicalAccess, disasterRecoveryPlan, incidentResponseTeam, incidentResponsePlanTesting, securityTools, cyberInsurance, dataBackups, dataRemoval, externalDevices, cybersecurityArchitecture, assetInventory, networkProtection, confidentialDataEncryption, leastFunctionality, securityApplications, vulnerability_assessments, cyber_risk_management, risk_management_program, risk_mitigation_strategies, vendor_management, humanResourcePolicy, secureCoding, securityAwareness, backgroundChecks, cybersecurityResponsibilities, thirdPartyAssessment, physicalAccessControls, changeManagementProcess, documentedSecurityPolicies, policiesReviewed, physicalAccessRevoked, gdprCompliant) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
-    values = (form_data["company_name"], form_data["industry"], form_data["employee_count"], form_data["num_security_employees"], form_data["securityBreach"], form_data["passwordRequirements"], form_data["accessRemoval"], form_data["multifactorCredentials"], form_data["logicalAccess"], form_data["disasterRecoveryPlan"], form_data["incidentResponseTeam"], form_data["incidentResponsePlanTesting"], form_data["securityTools"], form_data["cyberInsurance"], form_data["dataBackups"], form_data["dataRemoval"], form_data["externalDevices"], form_data["cybersecurityArchitecture"], form_data["assetInventory"], form_data["networkProtection"], form_data["confidentialDataEncryption"], form_data["leastFunctionality"], form_data["securityApplications"], form_data["vulnerability_assessments"], form_data["cyber_risk_management"], form_data["risk_management_program"], form_data["risk_mitigation_strategies"], form_data["vendor_management"], form_data["humanResourcePolicy"], form_data["secureCoding"], form_data["securityAwareness"], form_data["backgroundChecks"], form_data["cybersecurityResponsibilities"], form_data["thirdPartyAssessment"], form_data["physicalAccessControls"], form_data["changeManagementProcess"], form_data["documentedSecurityPolicies"], form_data["policiesReviewed"], form_data["physicalAccessRevoked"], form_data["gdprCompliant"])
-    values = tuple(form_data.values())
-    
-    cursor.execute(query, values)
-    conn.commit()
+        # Insert the form data into the survey_data table
+        query = "INSERT INTO survey_data (company_name, industry, employee_count, num_security_employees, securityBreach, passwordRequirements, accessRemoval, multifactorCredentials, logicalAccess, disasterRecoveryPlan, incidentResponseTeam, incidentResponsePlanTesting, securityTools, cyberInsurance, dataBackups, dataRemoval, externalDevices, cybersecurityArchitecture, assetInventory, networkProtection, confidentialDataEncryption, leastFunctionality, securityApplications, vulnerability_assessments, cyber_risk_management, risk_management_program, risk_mitigation_strategies, vendor_management, humanResourcePolicy, secureCoding, securityAwareness, backgroundChecks, cybersecurityResponsibilities, thirdPartyAssessment, physicalAccessControls, changeManagementProcess, documentedSecurityPolicies, policiesReviewed, physicalAccessRevoked, gdprCompliant) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        values = (form_data["company_name"], form_data["industry"], form_data["employee_count"], form_data["num_security_employees"], form_data["securityBreach"], form_data["passwordRequirements"], form_data["accessRemoval"], form_data["multifactorCredentials"], form_data["logicalAccess"], form_data["disasterRecoveryPlan"], form_data["incidentResponseTeam"], form_data["incidentResponsePlanTesting"], form_data["securityTools"], form_data["cyberInsurance"], form_data["dataBackups"], form_data["dataRemoval"], form_data["externalDevices"], form_data["cybersecurityArchitecture"], form_data["assetInventory"], form_data["networkProtection"], form_data["confidentialDataEncryption"], form_data["leastFunctionality"], form_data["securityApplications"], form_data["vulnerability_assessments"], form_data["cyber_risk_management"], form_data["risk_management_program"], form_data["risk_mitigation_strategies"], form_data["vendor_management"], form_data["humanResourcePolicy"], form_data["secureCoding"], form_data["securityAwareness"], form_data["backgroundChecks"], form_data["cybersecurityResponsibilities"], form_data["thirdPartyAssessment"], form_data["physicalAccessControls"], form_data["changeManagementProcess"], form_data["documentedSecurityPolicies"], form_data["policiesReviewed"], form_data["physicalAccessRevoked"], form_data["gdprCompliant"])
+        values = tuple(form_data.values())
 
-    return redirect(url_for('results', id = cursor.lastrowid))
+        cursor.execute(query, values)
+        conn.commit()
+
+        return redirect(url_for('results', id = cursor.lastrowid))
+    except Exception as e:
+        print(e)
 
 
 @app.route('/results', methods=['GET'])
