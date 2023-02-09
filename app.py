@@ -48,6 +48,7 @@ def submit():
         return redirect(url_for('results', id = cursor.lastrowid))
     except Exception as e:
         print(e)
+        return e
 
 
 @app.route('/results', methods=['GET'])
