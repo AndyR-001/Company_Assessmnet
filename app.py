@@ -7,8 +7,6 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-
-
 @app.route('/')
 def index():
     #render_template('Website.html')
@@ -16,7 +14,7 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    conn = sqlite3.connect(os.getcwd()+'\\templates\\assessment_results.db')
+    conn = sqlite3.connect(os.getcwd()+'/templates/assessment_results.db')
     cursor = conn.cursor()
     
     form_data = request.form
