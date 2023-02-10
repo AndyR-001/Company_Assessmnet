@@ -57,7 +57,7 @@ def submit():
 
 @app.route('/results', methods=['GET'])
 def results():
-    conn = sqlite3.connect('assessment_results.db')
+    conn = sqlite3.connect(os.getcwd()+'/templates/assessment_results.db')
     cursor = conn.cursor()
     # Define the SQL query to retrieve the answers from the survey results
     query = "SELECT * FROM survey_data WHERE id = ?"
