@@ -166,7 +166,7 @@ def results():
     elif percentage_risk_score <= 25:
         output_message = "Congratulations! your score is low! Your company is at an adequate level of security, please see the below reccomendations for how you can improve this score further!"
     elif percentage_risk_score <= 50:
-        output_message = "Your score is medium, this means you have a fair amount of securty measures in your company. However there is still improvements that can be made to reduce your security risk!"
+        output_message = "Your score is medium, this means you have a fair amount of securty measures in your company. However there are still improvements that can be made to reduce your security risk!"
     elif percentage_risk_score <= 70:
         output_message = "Your score is High, be warned that your organisation does not have a sufficient level of security measures in place. Please implement the below reccomendations to reduce the risks to your company."
     else:
@@ -327,7 +327,7 @@ def results():
 
         #Recommendations for "Is security awareness training provided to employees at least annually?"
         if answers["securityAwareness"] == "no":
-            recommendations.append("Security awareness training is an important part of maintaining the security of your organisation. By educating employees on potential threats and how to recognise and protect against them, you can help reduce the risk of security breaches and other security-related issues. Without this training, your employees may be more likely to inadvertently expose your organisation to potential threats. Please ensure this trainig is conducted att least annually. This is a critical Center for Internet Security (CIS)Control that should be implemented - (<a href='https://controls-assessment-specification.readthedocs.io/en/stable/control-14/index.html'>CIS Control 14: Security Awareness and Skills Training</a>)")
+            recommendations.append("Security awareness training is an important part of maintaining the security of your organisation. By educating employees on potential threats and how to recognise and protect against them, you can help reduce the risk of security breaches and other security-related issues. Without this training, your employees may be more likely to inadvertently expose your organisation to potential threats. Please ensure this trainig is conducted at least annually. This is a critical Center for Internet Security (CIS)Control that should be implemented - (<a href='https://controls-assessment-specification.readthedocs.io/en/stable/control-14/index.html'>CIS Control 14: Security Awareness and Skills Training</a>)")
     
         #Recommendations for "Are background and reference checks conducted before hiring new employees?"
         if answers["backgroundChecks"] == "no":
