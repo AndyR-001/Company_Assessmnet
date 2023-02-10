@@ -17,7 +17,7 @@ def index():
 @app.route("/submit", methods=["POST"])
 def submit():
 
-    conn = sqlite3.connect('\\Company_Assessment\\templates\\assessment_results.db')
+    conn = sqlite3.connect('.\\templates\\assessment_results.db')
     cursor = conn.cursor()
     
     form_data = request.form
