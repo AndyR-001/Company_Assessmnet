@@ -189,9 +189,9 @@
 					<p>Page 1 of 7</p>
 				
 				<h2>Information About the Organisation</h2>
-				<label class="form-label">Company name:</label>
+				<label class="form-label">Q1. Company name:</label>
 				<input type="text" name="company_name" required>
-				<label class="form-label">Select the industry that best describes your Company:
+				<label class="form-label">Q2. Select the industry that best describes your Company:
 					<input class="form-radio" type="radio" name="industry" value="financial_services" required> Financial services
 					<input class="form-radio" type="radio" name="industry" value="technology" required> Technology
 					<input class="form-radio" type="radio" name="industry" value="healthcare" required> Healthcare
@@ -202,13 +202,13 @@
 					<input class="form-radio" type="radio" name="industry" value="transportation" required> Transportation
 					<input class="form-radio" type="radio" name="industry" value="energy" required> Energy
 					<input class="form-radio" type="radio" name="industry" value="other" required> Other
-					<label class="form-label">How many employees does your Company have?</label>
+					<label class="form-label">Q3. How many employees does your Company have?</label>
 					<input class="form-radio" type="radio" name="employee_count" value="1-50" required> 1-50 employees
 					<input class="form-radio" type="radio" name="employee_count" value="51-250" required> 51-250 employees
 					<input class="form-radio" type="radio" name="employee_count" value="251-500" required> 251-500 employees
 					<input class="form-radio" type="radio" name="employee_count" value="501-1000" required> 501-1000 employees
 					<input class="form-radio" type="radio" name="employee_count" value="1000+" required> 1000+ employees
-					<label class="form-label">How many employees are within the Security team:</label>
+					<label class="form-label">Q4. How many employees are within the Security team:</label>
 					<input class="form-radio" type="radio" name="num_security_employees" value="0" required>0
 					<input class="form-radio" type="radio" name="num_security_employees" value="1-3" required>1-3
 					<input class="form-radio" type="radio" name="num_security_employees" value="4-6" required>4-6
@@ -216,7 +216,7 @@
 					<input class="form-radio" type="radio" name="num_security_employees" value="10-15" required>10-15
 					<input class="form-radio" type="radio" name="num_security_employees" value="16-20" required>16-20
 					<input class="form-radio" type="radio" name="num_security_employees" value="20+" required>20+
-					<label class="form-label">Has your company suffered a Security breach in the last 12 months?</label><br>
+					<label class="form-label">Q5. Has your company suffered a Security breach in the last 12 months?</label><br>
 					<input class="form-radio" type="radio" name="securityBreach" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityBreach" value="no" required> No<br>
 					
@@ -230,20 +230,20 @@
 						<p>Page 2 of 7</p>
 					
 					<h2>Identity and Access Management</h2>
-					<label class="form-label">Does the company set password complexity requirements and require periodic changes? Please Select the requirements that apply.</label><br>
+					<label class="form-label">Q6. Does the company set password complexity requirements and require periodic changes? Please Select the requirements that apply.</label><br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="no" required> No password requirements<br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="uppercase" required> Must contain uppercase characters<br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="numeric" required> Must contain numeric characters<br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="special" required> Must contain special characters<br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="min-8" required> Must have a minimum length of 8 characters<br>
 					<input class="form-radio" type="radio" name="passwordRequirements" value="all" required> All of the above<br>
-					<label class="form-label">Is there a process to remove access to systems containing scoped data within 24 hours for terminated constituents?</label><br>
+					<label class="form-label">Q7. Is there a process to remove access to systems containing company data within a 24-hour timeframe for employees who have been terminated?</label><br>
 					<input class="form-radio" type="radio" name="accessRemoval" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="accessRemoval" value="no" required> No<br>
-					<label class="form-label">Are stronger or multifactor credentials required for access that poses higher risk to the function (such as privileged accounts, service accounts, shared accounts and remote access)?</label><br>
+					<label class="form-label">Q8. Are stronger or multifactor credentials required for access that poses higher risk to the function (such as privileged accounts, service accounts, shared accounts and remote access)?</label><br>
 					<input class="form-radio" type="radio" name="multifactorCredentials" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="multifactorCredentials" value="no" required> No<br>
-					<label class="form-label">Does the company use Logical Access Control (LAC) permissions to give users only the necessary access to resources for their job, following the "least privilege" principle?</label><br>
+					<label class="form-label">Q9. Does the company use Logical Access Control (LAC) permissions to give users only the necessary access to resources for their job, following the "least privilege" principle?</label><br>
 					<input class="form-radio" type="radio" name="logicalAccess" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="logicalAccess" value="no" required> No<br>
 					
@@ -262,22 +262,22 @@
 						<p>Page 3 of 7</p>
 					
 					<h2>Event and incident response, continuity of operations</h2>
-					<label class="form-label">Do you have a disaster recovery and incident response plan in place?</label><br>
+					<label class="form-label">Q10. Do you have a disaster recovery and incident response plan in place?</label><br>
 					<input class="form-radio" type="radio" name="disasterRecoveryPlan" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="disasterRecoveryPlan" value="no" required> No<br>
-					<label class="form-label">Do you have an incident response team available 24/7?</label><br>
+					<label class="form-label">Q11. Do you have an incident response team available 24/7?</label><br>
 					<input class="form-radio" type="radio" name="incidentResponseTeam" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="incidentResponseTeam" value="no" required> No<br>
-					<label class="form-label">Do you periodically test your Incident Response Plan with the incident handling team?</label><br>
+					<label class="form-label">Q12. Do you periodically test your Incident Response Plan with the incident handling team?</label><br>
 					<input class="form-radio" type="radio" name="incidentResponsePlanTesting" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="incidentResponsePlanTesting" value="no" required> No<br><br>
-					<label"class="form-label" style="font-weight: bold;">Do you have security tools (IDS, IPS, etc.) and processes in place to monitor use of information processing facilities and to take corrective action to respond to system irregularities/anomalies?</label><br>
+					<label class="form-label" style="font-weight: bold;">Q13. Do you have security tools (IDS, IPS, etc.) and processes in place to monitor the use of information processing facilities and to take corrective action to respond to system irregularities/anomalies?</label><br>
 					<input class="form-radio" type="radio" name="securityTools" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityTools" value="no" required> No<br>
-					<label class="form-label">Does the organisation have Cyber insurance coverage?</label><br>
+					<label class="form-label">Q14. Does the organisation have Cyber insurance coverage?</label><br>
 					<input class="form-radio" type="radio" name="cyberInsurance" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="cyberInsurance" value="no" required> No<br>
-					<label class="form-label">Does the organisation have data backups, are the backups logically or physically separated from source data and is it protected with the same controls as the source data?</label><br>
+					<label class="form-label">Q15. Does the organisation have data backups that are protected with the same controls as the source data?</label><br>
 					<input class="form-radio" type="radio" name="dataBackups" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="dataBackups" value="no" required> No<br>
 					
@@ -297,28 +297,28 @@
 						<p>Page 4 of 7</p>
 					
 					<h2>IT Security Controls</h2>
-					<label class="form-label">Is Data destroyed or securely removed from IT assets prior to redeployment and at end of life?</label><br>
+					<label class="form-label">Q16. Is Data destroyed or securely removed from IT assets prior to redeployment and at end of life?</label><br>
 					<input class="form-radio" type="radio" name="dataRemoval" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="dataRemoval" value="no" required> No<br>
-					<label class="form-label">Do you monitor and limit the use of external devices (USB, CDs, etc.) to business need?</label><br>
+					<label class="form-label">Q17. Do you monitor and limit the use of external devices (USB, CDs, etc.) to business need?</label><br>
 					<input class="form-radio" type="radio" name="externalDevices" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="externalDevices" value="no" required> No<br>
-					<label class="form-label">Does the cybersecurity architecture include measures, like full disk encryption, to safeguard data stored on assets that could potentially be lost or stolen?</label><br>
+					<label class="form-label">Q18. Does the cybersecurity architecture include measures, like full disk encryption, to safeguard data stored on assets that could potentially be lost or stolen?</label><br>
 					<input class="form-radio" type="radio" name="cybersecurityArchitecture" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="cybersecurityArchitecture" value="no" required> No<br>
-					<label class="form-label">Does the company have an Information asset inventory that is up to date with the relevant information for asset management?</label><br>
+					<label class="form-label">Q19. Does the company have an Information asset inventory that is up to date with the relevant information for asset management?</label><br>
 					<input class="form-radio" type="radio" name="assetInventory" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="assetInventory" value="no" required> No<br>
-					<label class="form-label">Does the company have network protection measures including monitoring, analysis and control of the network traffic (for example. firewalls, whitelisting, intrusion detection and prevention systems (IDPS)?</label><br>
+					<label class="form-label">Q20. Does the company have network protection measures including monitoring, analysis and control of the network traffic (for example. firewalls, whitelisting, intrusion detection and prevention systems (IDPS)?</label><br>
 					<input class="form-radio" type="radio" name="networkProtection" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="networkProtection" value="no" required> No<br>
-					<label class="form-label">Is confidential data encrypted in transit and at rest?</label><br>
+					<label class="form-label">Q21. Is confidential data encrypted in transit and at rest?</label><br>
 					<input class="form-radio" type="radio" name="confidentialDataEncryption" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="confidentialDataEncryption" value="no" required> No<br>
-					<label class="form-label">Is the principle of least functionality enforced (for example, limiting services, limiting applications, limiting ports, limiting connected devices)?</label><br>
+					<label class="form-label">Q22. Is the principle of least functionality enforced (for example, limiting services, limiting applications, limiting ports, limiting connected devices)?</label><br>
 					<input class="form-radio" type="radio" name="leastFunctionality" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="leastFunctionality" value="no" required> No<br>
-					<label class="form-label">Are security applications embedded into endpoints (for example, mobile device management, endpoint detection and response applications, host-based firewalls)?</label><br>
+					<label class="form-label">Q23. Are security applications embedded into endpoints (for example, mobile device management, endpoint detection and response applications, host-based firewalls)?</label><br>
 					<input class="form-radio" type="radio" name="securityApplications" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityApplications" value="no" required> No<br>
 				
@@ -338,19 +338,19 @@
 						<p>Page 5 of 7</p>
 					
 					<h2>Risk Threat and vulnerability Management</h2>
-					<label class="form-label">Does the company periodically collect relevant threat information, perform cybersecurity vulnerability assessments, and share the findings with relevant stakeholders?</label><br>
+					<label class="form-label">Q24. Does the company periodically collect relevant threat information, perform cybersecurity vulnerability assessments, and share the findings with relevant stakeholders?</label><br>
 					<input class="form-radio" type="radio" name="vulnerability_assessments" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="vulnerability_assessments" value="no" required> No<br>
-					<label class="form-label">Has the company established and maintained a cyber risk management strategy that aligns with its mission and objectives, and includes activities in the risk domain?</label><br>
+					<label class="form-label">Q25. Has the company established and maintained a cyber risk management strategy that aligns with its mission and objectives, and includes activities in the risk domain?</label><br>
 					<input class="form-radio" type="radio" name="cyber_risk_management" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="cyber_risk_management" value="no" required> No<br>
-					<label class="form-label">Is there a program to manage the treatment of risks identified during assessments?</label><br>
+					<label class="form-label">Q26. Is there a program to manage the treatment of risks identified during assessments?</label><br>
 					<input class="form-radio" type="radio" name="risk_management_program" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="risk_management_program" value="no" required> No<br>
-					<label class="form-label">Is there a formal process for assigning ownership, reviewing risk appetite, mapping controls and tracking the progress of risk mitigation strategies?</label><br>
+					<label class="form-label">Q27. Is there a formal process for assigning ownership, reviewing risk appetite, mapping controls and tracking the progress of risk mitigation strategies?</label><br>
 					<input class="form-radio" type="radio" name="risk_mitigation_strategies" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="risk_mitigation_strategies" value="no" required> No<br>
-					<label class="form-label">Is there a vendor Management program?</label><br>
+					<label class="form-label">Q28. Is there a vendor Management program?</label><br>
 					<input class="form-radio" type="radio" name="vendor_management" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="vendor_management" value="no" required> No<br>
 					
@@ -370,19 +370,19 @@
 				
 					
 					<h2>Workforce management</h2>
-					<label class="form-label">Is there a Human Resource policy approved by management, communicated to constituents and an owner to maintain and review?</label><br>
+					<label class="form-label">Q29. Is there a Human Resources policy that has been authorised by management, communicated to employees, and assigned an owner to ensure its maintenance and review?</label><br>
 					<input class="form-radio" type="radio" name="humanResourcePolicy" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="humanResourcePolicy" value="no" required> No<br>
-					<label class="form-label">Are application development teams trained in secure coding techniques at least annually?</label><br>
+					<label class="form-label">Q30. Are application development teams trained in secure coding techniques at least annually?</label><br>
 					<input class="form-radio" type="radio" name="secureCoding" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="secureCoding" value="no" required> No<br>
-					<label class="form-label">Is security awareness training provided to employees at least annually?</label><br>
+					<label class="form-label">Q31. Is security awareness training provided to employees at least annually?</label><br>
 					<input class="form-radio" type="radio" name="securityAwareness" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="securityAwareness" value="no" required> No<br>
-					<label class="form-label">Are background and reference checks conducted before hiring new employees?</label><br>
+					<label class="form-label">Q32. Are background and reference checks conducted before hiring new employees?</label><br>
 					<input class="form-radio" type="radio" name="backgroundChecks" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="backgroundChecks" value="no" required> No<br>
-					<label class="form-label">Are specific people within the company assigned and responsible for departmental cybersecurity duties?</label><br>
+					<label class="form-label">Q33. Are specific people within the company assigned and responsible for departmental cybersecurity duties?</label><br>
 					<input class="form-radio" type="radio" name="cybersecurityResponsibilities" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="cybersecurityResponsibilities" value="no" required> No<br>
 					
@@ -401,29 +401,29 @@
 						<p>Page 7 of 7</p>
 					
 					<h2>Standards, Processes and Compliance</h2>
-					<label class="form-label">Do you gather security assessments of your third parties, monitor their performance and security risks(specifically any that might have access to any of your data)</label><br>
+					<label class="form-label">Q34. Have you implemented procedures to obtain security assessments of third-party vendors, track their performance, and evaluate their security risks, particularly for those who may have access to your data?</label><br>
 					<input class="form-radio" type="radio" name="thirdPartyAssessment" value="no" required> Never<br>
 					<input class="form-radio" type="radio" name="thirdPartyAssessment" value="onboarding" required> Only on onboarding<br>
 					<input class="form-radio" type="radio" name="thirdPartyAssessment" value="12" required> Every 12 months<br>
 					<input class="form-radio" type="radio" name="thirdPartyAssessment" value="2" required> Every 2 years<br>
 					<input class="form-radio" type="radio" name="thirdPartyAssessment" value="2+" required> More than 2+ years <br>
-				    <input class="form-radio" type="radio" name="thirdPartyAssessment" value="breach" required> Only in the event of a third party security breach <br>
-					<label class="form-label">Does the company have physical access controls in place, such as fences, locks, alarms, and signage, to determine and record who is allowed access and who has gained access to their on-site premises?</label><br>
+				    	<input class="form-radio" type="radio" name="thirdPartyAssessment" value="breach" required> Only in the event of a third party security breach <br>
+					<label class="form-label">Q35. Does the company have physical access controls in place, such as fences, locks, alarms, and signage, to determine and record who is allowed access and who has gained access to their on-site premises?</label><br>
 					<input class="form-radio" type="radio" name="physicalAccessControls" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="physicalAccessControls" value="no" required> No<br>
-					<label class="form-label">Do you have a formal change management process which includes impact analysis, approvals, testing, and rollback procedures?</label><br>
+					<label class="form-label">Q36. Do you have a formal change management process which includes impact analysis, approvals, testing, and rollback procedures?</label><br>
 					<input class="form-radio" type="radio" name="changeManagementProcess" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="changeManagementProcess" value="no" required> No<br>
-					<label class="form-label">Do you have documented security policies, including: Acceptable use, network security, data classification and User Identification, Authentication, and Authorisation?</label><br>
+					<label class="form-label">Q37. Do you have documented security policies, including: Acceptable use, network security, data classification and User Identification, Authentication, and Authorisation?</label><br>
 					<input class="form-radio" type="radio" name="documentedSecurityPolicies" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="documentedSecurityPolicies" value="no" required> No<br>
-					<label class="form-label">Have the policies been reviewed in the last 12 months?</label><br>
+					<label class="form-label">Q38. Have the policies been reviewed in the last 12 months?</label><br>
 					<input class="form-radio" type="radio" name="policiesReviewed" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="policiesReviewed" value="no" required> No<br>
-					<label class="form-label">Is physical access (such as keys, keycards, Identification badges) revoked when no longer needed?</label><br>
+					<label class="form-label">Q39. Is physical access (such as keys, keycards, Identification badges) revoked when no longer needed?</label><br>
 					<input class="form-radio" type="radio" name="physicalAccessRevoked" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="physicalAccessRevoked" value="no" required> No<br>
-					<label class="form-label">Do you Process any personal Data? If so, are you GDPR compliant? If you do not process any, please select N/A.</label><br>
+					<label class="form-label">Q40. Do you Process any personal Data? If so, are you GDPR compliant? If you do not process any, please select N/A.</label><br>
 					<input class="form-radio" type="radio" name="gdprCompliant" value="yes" required> Yes<br>
 					<input class="form-radio" type="radio" name="gdprCompliant" value="no" required> No<br>
 					<input class="form-radio" type="radio" name="gdprCompliant" value="na" required> N/A<br>
