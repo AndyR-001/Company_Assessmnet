@@ -199,7 +199,7 @@ def results():
         "education": "As you are in the education industry, we recommend that you review regulations such as the Family Educational Rights and Privacy Act (FERPA) and the Children's Online Privacy Protection Act (COPPA).",
         "transportation": "As you are in the transportation industry, we recommend that you review regulations such as the Department of Transportation (DOT) and the International Air Transport Association (IATA).",
         "energy": "As you are in the energy industry, we recommend that you review regulations such as the North American Electric Reliability Corporation (NERC) and the Occupational Safety and Health Administration (OSHA).",
-        "other": "Please refer to your local jurisdiction regulations and standards for further guidence on improving your security."
+        "other": "Please refer to the regulations and standards in your specific region for further guidance on improving your security."
         }
         recommendations.append(industry_reccomendations[industry])
         # Recommendations for employee count and security team size
@@ -230,9 +230,9 @@ def results():
         }
         recommendations.append(password_Recommendations[password_Requirements])
 
-        # Recommendations for "Is there a process to remove access to systems containing scoped data within 24 hours for terminated constituents?"
+        # Recommendations for "Is there a process to remove access to systems containing scoped data within 24 hours for terminated employees?"
         if answers["accessRemoval"] == "no":
-            recommendations.append("It is important to have a process in place to promptly remove access to systems containing scoped data for terminated constituents. This is a fundamental policy in ITIL (Information Technology Infrastructure Library) and failure to do so can leave your company vulnerable to data breaches or unauthorised access. Some suggestions for improving this process include implementing automated deactivation of access upon employee termination, regularly reviewing and auditing access permissions, and establishing clear guidelines and procedures for revoking access.")
+            recommendations.append("It is important to have a process in place to promptly remove access to systems containing company data for terminated employees. This is a fundamental policy in ITIL (Information Technology Infrastructure Library) and failure to do so can leave your company vulnerable to data breaches or unauthorised access. Some suggestions for improving this process include implementing automated deactivation of access upon employee termination, regularly reviewing and auditing access permissions, and establishing clear guidelines and procedures for revoking access.")
     
         # Recommendations for "Are stronger or multifactor credentials required for access that poses higher risk to the function (such as privileged accounts, service accounts, shared accounts and remote access)?"
         if answers["multifactorCredentials"] == "no":
@@ -318,9 +318,9 @@ def results():
         if answers["vendor_management"] == "no":
             recommendations.append("Implementing a vendor management program is an important aspect of maintaining the security of your company's systems and data. As a starting point, consider reviewing vendors upon onboarding and passing them through a security check. Over time, you may also want to consider reviewing existing vendors annually. This is a requirement of the ISO 27001 standard and can help protect against supply chain threats (<a href='https://www.isms.online/iso-27001/annex-a-15-supplier-relationships/'>ISO 27001 – Annex A.15: Supplier Relationships</a>).")
             
-        #Recommendations for "Is there a Human Resource policy approved by management, communicated to constituents and an owner to maintain and review?"  
+        #Recommendations for "Is there a Human Resource policy approved by management, communicated to employees and an owner to maintain and review?"  
         if answers["humanResourcePolicy"] == "no":
-            recommendations.append("It is important to have a Human Resource policy in place that is approved by management, communicated to all constituents, and maintained and reviewed by a designated owner. This policy can help ensure that your organisation is in compliance with relevant laws and regulations, and that employee-related risks are effectively managed. Without such a policy, your organisation may be at increased risk of legal or regulatory non-compliance, as well as employee-related issues that could impact the security of your systems and data. We recommend implementing a Human Resource policy as soon as possible to mitigate these risks.")
+            recommendations.append("It is important to have a Human Resource policy in place that is approved by management, communicated to all employees, and maintained and reviewed by a designated owner. This policy can help ensure that your organisation is in compliance with relevant laws and regulations, and that employee-related risks are effectively managed. Without such a policy, your organisation may be at increased risk of legal or regulatory non-compliance, as well as employee-related issues that could impact the security of your systems and data. We recommend implementing a Human Resource policy as soon as possible to mitigate these risks.")
     
         #Recommendations for "Are application development teams trained in secure coding techniques at least annually?"
         if answers["secureCoding"] == "no":
