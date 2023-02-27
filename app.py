@@ -164,13 +164,13 @@ def results():
     if percentage_risk_score == 0:
         output_message = "Congratulations! Your company has a perfect security score. Keep up the good work and continue to review and improve your security measures."
     elif percentage_risk_score <= 25:
-        output_message = "Congratulations! your score is low! Your company is at an adequate level of security, please see the below reccomendations for how you can improve this score further!"
+        output_message = "Congratulations! your score is low! Your company is at an adequate level of security, please see the below recommendations for how you can improve this score further!"
     elif percentage_risk_score <= 50:
         output_message = "Your score is medium, this means you have a fair amount of securty measures in your company. However there are still improvements that can be made to reduce your security risk!"
     elif percentage_risk_score <= 70:
-        output_message = "Your score is High, be warned that your organisation does not have a sufficient level of security measures in place. Please implement the below reccomendations to reduce the risks to your company."
+        output_message = "Your score is High, be warned that your organisation does not have a sufficient level of security measures in place. Please implement the below recommendations to reduce the risks to your company."
     else:
-        output_message = "WARNING: This score is critically High, It is urgent that you seek assistance to implement the security reccomendations below!"
+        output_message = "WARNING: This score is critically High, It is urgent that you seek assistance to implement the security recommendations below!"
 
     # Initialise the recommendations variable
     recommendations = []  
@@ -186,10 +186,10 @@ def results():
             column_name = cursor.description[i][0]
             answer = row[i]
             answers[column_name] = answer
-    # Reccomended improvements for the company based on their answers
+    # Recommended improvements for the company based on their answers
         # Recommendations for industry relevant regulations
         industry = answers["industry"]
-        industry_reccomendations = {
+        industry_recommendations = {
         "financial_services": "As you are in the financial services industry, we recommend that you review regulations such as the Payment Card Industry Data Security Standard (PCI DSS) and the General Data Protection Regulation (GDPR).",
         "technology": "As you are in the technology industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the Federal Risk and Authorisation Management Program (FedRAMP).",
         "healthcare": "As you are in the healthcare industry, we recommend that you review regulations such as the Health Insurance Portability and Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR).",
@@ -201,10 +201,10 @@ def results():
         "energy": "As you are in the energy industry, we recommend that you review regulations such as the North American Electric Reliability Corporation (NERC) and the Occupational Safety and Health Administration (OSHA).",
         "other": "Please refer to the regulations and standards in your specific region for further guidance on improving your security."
         }
-        recommendations.append(industry_reccomendations[industry])
+        recommendations.append(industry_recommendations[industry])
         # Recommendations for employee count and security team size
         if answers["employee_count"] == "1-50" and answers["num_security_employees"] == "0":
-            recommendations.append("We recomend that companies with 1-50 employees have at least one person dedicated to security. As your company does not have any security personnel, we recommend that you consider adding at least one person to your team or assigning this responsibility to an existing employee that can implement some of the reccomendations below.")
+            recommendations.append("We recomend that companies with 1-50 employees have at least one person dedicated to security. As your company does not have any security personnel, we recommend that you consider adding at least one person to your team or assigning this responsibility to an existing employee that can implement some of the recommendations below.")
         elif answers["employee_count"] == "51-250" and answers["num_security_employees"] in ["0", "1-3"]:
             recommendations.append("We recommend that companies with 51-250 employees have at least 4-6 security personnel. As your company has fewer than 4-6 security personnel, we recommend that you consider increasing the size of your security team to ensure that you are properly staffed in order to protect against cyber threats. This includes regular security assessments and audits, implementing robust incident response plans and regularly reviewing and updating security policies and procedures.")
         elif answers["employee_count"] == "251-500" and answers["num_security_employees"] in ["0", "1-3", "4-6"]:
@@ -276,11 +276,11 @@ def results():
 
         #Recommendations for "The cybersecurity architecture includes protections (such as full disk encryption) for data that is stored on assets that may be lost or stolen?"
         if answers["cybersecurityArchitecture"] == "no":
-            recommendations.append("We reccomend adding protections for data stored on assets that may be lost or stolen. One effective measure is full disk encryption, which ensures that data on a device is unreadable without a decryption key. This can prevent unauthorised access to sensitive information in the event that an asset is lost or stolen. In addition, implementing a robust security architecture that includes multiple layers of protection can help to mitigate the risk of data loss or theft. Consider reviewing industry standards and best practices, such as (<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-111.pdf'>NIST SP 800-111</a>)")
+            recommendations.append("We recommend adding protections for data stored on assets that may be lost or stolen. One effective measure is full disk encryption, which ensures that data on a device is unreadable without a decryption key. This can prevent unauthorised access to sensitive information in the event that an asset is lost or stolen. In addition, implementing a robust security architecture that includes multiple layers of protection can help to mitigate the risk of data loss or theft. Consider reviewing industry standards and best practices, such as (<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-111.pdf'>NIST SP 800-111</a>)")
 
         #Recommendations for "Does the company have an Information asset inventory that is up to date with the relevant information for asset management?"
         if answers["assetInventory"] == "no":
-            recommendations.append("We reccomend that your company create an up-to-date information asset inventory to ensure effective asset management. This includes keeping track of all hardware and software assets, as well as any data stored on them. Having an accurate inventory allows a company to properly allocate resources and prioritise security measures. Consider reviewing the ITIL framework for more in depth guidence  more in depth guidence (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>).")
+            recommendations.append("We recommend that your company create an up-to-date information asset inventory to ensure effective asset management. This includes keeping track of all hardware and software assets, as well as any data stored on them. Having an accurate inventory allows a company to properly allocate resources and prioritise security measures. Consider reviewing the ITIL framework for more in depth guidence  more in depth guidence (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>).")
 
         #Recommendations for "Does the company have network protection measures including monitoring, analysis and control of the network traffic (for example. firewalls, whitelisting, intrusion detection and prevention systems (IDPS)?"
         if answers["networkProtection"] == "no":
@@ -292,7 +292,7 @@ def results():
 
         #Recommendations for "Is the principle of least functionality enforced (for example, limiting services, limiting applications, limiting ports, limiting connected devices)?"
         if answers["leastFunctionality"] == "no":
-            recommendations.append("We reccomend that your company implement the principle of least functionality by limiting services, applications, ports, and connected devices as appropriate. This principle is a common configuration management control seen in popular frameworks such as NIST -SP-800-53 and the Cloud Controls Matrix - (<a href='https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-pt/pr-pt-3/#ccm-v3-0-1'>CSF</a>) ")
+            recommendations.append("We recommend that your company implement the principle of least functionality by limiting services, applications, ports, and connected devices as appropriate. This principle is a common configuration management control seen in popular frameworks such as NIST -SP-800-53 and the Cloud Controls Matrix - (<a href='https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-pt/pr-pt-3/#ccm-v3-0-1'>CSF</a>) ")
 
         #Recommendations for "Are security applications embedded into endpoints (for example, mobile device management, endpoint detection and response applications, host-based firewalls)?"
         if answers["securityApplications"] == "no":
@@ -312,7 +312,7 @@ def results():
             
         #Recommendations for "Is there a formal process for assigning ownership, reviewing risk appetite, mapping controls and tracking the progress of risk mitigation strategies?"
         if answers["risk_mitigation_strategies"] == "no":
-            recommendations.append("A process for managing risk, including assigning ownership, reviewing risk appetite, mapping controls, and tracking progress of risk mitigation strategies, can help protect against potential threats. We reccomend that this assessment be used as a starting point for managing identified risks.")
+            recommendations.append("A process for managing risk, including assigning ownership, reviewing risk appetite, mapping controls, and tracking progress of risk mitigation strategies, can help protect against potential threats. We recommend that this assessment be used as a starting point for managing identified risks.")
 
         #Recommendations for "Is there a vendor Management program?"
         if answers["vendor_management"] == "no":
@@ -351,7 +351,7 @@ def results():
             
         #Recommendations for "Physical access controls (such as fences, locks, alarms and signage) are implemented and logs are maintained to determine who is allowed access and who has gained access to your on site premise?"
         if answers["physicalAccessControls"] == "no":
-            recommendations.append("We reccomend implementing physical access controls, such as fences, locks, alarms, and signage, and maintaining logs to determine who is allowed access and who has gained access to your on-site premise is an important aspect of maintaining the security of your organisation's systems and data. It is often overlooked, but physical access to your premise is just as important as other security controls such as network security and data classification. Without these controls and logs in place, your organisation may be more vulnerable to unauthorised access, theft, or damage to your equipment and data. ")
+            recommendations.append("We recommend implementing physical access controls, such as fences, locks, alarms, and signage, and maintaining logs to determine who is allowed access and who has gained access to your on-site premise is an important aspect of maintaining the security of your organisation's systems and data. It is often overlooked, but physical access to your premise is just as important as other security controls such as network security and data classification. Without these controls and logs in place, your organisation may be more vulnerable to unauthorised access, theft, or damage to your equipment and data. ")
 
         #Recommendations for "Do you have a formal change management process which includes impact analysis, approvals, testing, and rollback procedures?"
         if answers["changeManagementProcess"] == "no":
