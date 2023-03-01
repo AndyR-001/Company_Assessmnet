@@ -8,6 +8,11 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
+def hash_id(value):
+# Convert the value to bytes and hash it using SHA-256
+    hashed = hashlib.sha256(str(value).encode('utf-8')).hexdigest()
+    return hashed
+
 @app.route('/')
 def index():
     #render_template('Website.html')
