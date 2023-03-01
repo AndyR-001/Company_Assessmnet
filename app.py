@@ -11,7 +11,7 @@ app.secret_key = os.urandom(24)
 def hash_id(value):
 # Convert the value to bytes and hash it using SHA-256
     hashed = hashlib.sha256(str(value).encode('utf-8')).hexdigest()
-    return hashed
+    return int(hashed, 16)
 
 @app.route('/')
 def index():
@@ -60,7 +60,7 @@ def submit():
     
     # Generate a hashed ID from the row ID
     row_id = cursor.lastrowid
-    hashed_id = hash_id(str(row_id))
+    hashed_id = hash_id(row_id)
     
     # Update the ID field of the inserted row with the hashed ID
     cursor.execute("UPDATE survey_data SET id = ? WHERE id = ?", (hashed_id, row_id))
