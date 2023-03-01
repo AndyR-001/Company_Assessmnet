@@ -2,6 +2,7 @@
 print("Content-Type: text/html\n")
 
 import sqlite3
+import hashlib
 from flask import Flask, request, redirect, render_template, url_for, session
 import os
 app = Flask(__name__)
@@ -51,8 +52,16 @@ def submit():
     
     cursor.execute(query, values)
     conn.commit()
-
-    return redirect(url_for('results', id = cursor.lastrowid))
+    
+    # Generate a hashed ID from the row ID
+    row_id = cursor.lastrowid
+    hashed_id = hash_id(str(row_id))
+    
+    # Update the ID field of the inserted row with the hashed ID
+    cursor.execute("UPDATE survey_data SET id = ? WHERE id = ?", (hashed_id, row_id))
+    conn.commit()
+    
+    return redirect(url_for('results', id=hashed_id))
 
 
 @app.route('/results', methods=['GET'])
