@@ -9,9 +9,13 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 def hash_id(value):
-# Convert the value to bytes and hash it using SHA-256
+    # Convert the value to bytes and hash it using SHA-256
     hashed = hashlib.sha256(str(value).encode('utf-8')).hexdigest()
-    return int(hashed, 16)
+    # Truncate the hash to fit in a signed 32-bit integer column
+    hashed_int = int(hashed, 16)  # Convert the hash to an integer
+    max_int = (1 << 31) - 1  # Maximum signed 32-bit integer value
+    hashed_truncated = hashed_int % max_int  # Take modulo to fit in the column
+    return hashed_truncated
 
 @app.route('/')
 def index():
