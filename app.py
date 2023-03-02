@@ -318,7 +318,7 @@ def results():
            
         #Recommendations for "Relevant threat information is gathered and cybersecurity vulnerability assessments are performed periodically and shared to stakeholders?"
         if answers["vulnerability_assessments"] == "no":
-            recommendations.append("Gathering and sharing relevant threat information and cybersecurity vulnerability assessments can help protect against potential threats. Consider implementing a process for gathering and sharing this information with relevant stakeholders. (<a href='https://www.gov.uk/government/publications/cyber-threat-intelligence-information-sharing/cyber-threat-intelligence-information-sharing-guide'>GOV.uk</a>) provide guidence on this")
+            recommendations.append("Gathering and sharing relevant threat information and cybersecurity vulnerability assessments can help protect against potential threats. Consider implementing a process for gathering and sharing this information with relevant stakeholders. (<a href='https://www.gov.uk/government/publications/cyber-threat-intelligence-information-sharing/cyber-threat-intelligence-information-sharing-guide'>GOV.uk</a>) provide guidence on this.")
 
         #Recommendations for "A strategy for cyber risk management is established and maintained to implement and perform activities in the risk domain in alignment with the organisation's mission and objectives?"
         if answers["cyber_risk_management"] == "no":
@@ -326,7 +326,7 @@ def results():
 
         #Recommendations for "Is there a program to manage the treatment of risks identified during assessments?"
         if answers["risk_management_program"] == "no":
-            recommendations.append("Implementing a program to manage the treatment of identified risks can help protect against potential threats. Consider developing such a program using (<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf'>NIST SP-800-30</a>) guide") 
+            recommendations.append("Implementing a program to manage the treatment of identified risks can help protect against potential threats. Consider developing such a program using (<a href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf'>NIST SP-800-30</a>) guide.") 
             
         #Recommendations for "Is there a formal process for assigning ownership, reviewing risk appetite, mapping controls and tracking the progress of risk mitigation strategies?"
         if answers["risk_mitigation_strategies"] == "no":
@@ -354,7 +354,7 @@ def results():
 
         #Recommendations for "Departmental cybersecurity responsibilities are identified and assigned to specific people in the organisation?"
         if answers["cybersecurityResponsibilities"] == "no":
-            recommendations.append("Assigning cybersecurity responsibilities to specific people in the organisation is crucial for protecting against potential cyber-related threats. Without clear assignment, risks and incidents may go unidentified and unresolved. We recommend implementing this structure to enhance overall security of the organisation")    
+            recommendations.append("Assigning cybersecurity responsibilities to specific people in the organisation is crucial for protecting against potential cyber-related threats. Without clear assignment, risks and incidents may go unidentified and unresolved. We recommend implementing this structure to enhance overall security of the organisation.")    
             
         thirdPartyAssessment = answers["thirdPartyAssessment"]
         thirdPartyAssessmentRecommendations = {
