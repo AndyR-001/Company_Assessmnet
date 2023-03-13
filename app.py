@@ -270,7 +270,7 @@ def results():
 
         #Recommendations for "Do you periodically test your Incident Response Plan with the incident handling team?"
         if answers["incidentResponsePlanTesting"] == "no":
-            recommendations.append("Periodically test your incident response plan with the incident handling team to ensure readiness and effectiveness in the event of a security incident, see NIST guidence for further information (<a href='https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final'>NIST SP 800-34 Rev. 1</a>).")
+            recommendations.append("Periodically test your incident response plan with the incident handling team to ensure readiness and effectiveness in the event of a security incident, see NIST guidance for further information (<a href='https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final'>NIST SP 800-34 Rev. 1</a>).")
 
         #Recommendations for "Do you have security tools (IDS, IPS, etc.) and processes in place to monitor use of information processing facilities and to take corrective action to respond to system irregularities/anomalies?"
         if answers["securityTools"] == "no":
@@ -282,11 +282,11 @@ def results():
 
         #Recommendations for "Does the organisation have data backups, are the backups logically or physically separated from source data and is it protected with the same controls as the source data?"
         if answers["dataBackups"] == "no":
-            recommendations.append("Ensure that your organisation has data backups in place and that they are logically or physically separated from the source data and protected with the same controls as the source data. This is a key control reuired to achieve an ISO27001 certificate (<a href='https://www.isms.online/iso-27002/control-8-13-information-backup/'>ISO 27002:2022, Control 8.13 – Information Backup</a>) ") 
+            recommendations.append("Ensure that your organisation has data backups in place and that they are logically or physically separated from the source data and protected with the same controls as the source data. This is a key control required to achieve an ISO27001 certificate (<a href='https://www.isms.online/iso-27002/control-8-13-information-backup/'>ISO 27002:2022, Control 8.13 – Information Backup</a>) ") 
             
         #Recommendations for "Is Data destroyed or securely removed from IT assets prior to redeployment and at end of life?"
         if answers["dataRemoval"] == "no":
-            recommendations.append("It's important to have a process in place to securely dispose of IT assets when they are no longer needed or at the end of their lifespan. One method to consider is using software such as Eraser or KillDisk to completely wipe the data from the asset. Another option is to physically destroy the asset, such as shredding hard drives or crushing computers. It's also important to ensure that this process is documented and followed consistently to ensure the security of sensitive data. This is a requirement of many security standards including ISO27001 and ITIL which can provide more in depth guidence (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>). By implementing a secure asset disposal process, you can ensure that your company's data remains protected and minimise the risk of a data breach.")
+            recommendations.append("It's important to have a process in place to securely dispose of IT assets when they are no longer needed or at the end of their lifespan. One method to consider is using software such as Eraser or KillDisk to completely wipe the data from the asset. Another option is to physically destroy the asset, such as shredding hard drives or crushing computers. It's also important to ensure that this process is documented and followed consistently to ensure the security of sensitive data. This is a requirement of many security standards including ISO27001 and ITIL which can provide more in depth guidance (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>). By implementing a secure asset disposal process, you can ensure that your company's data remains protected and minimise the risk of a data breach.")
 
         #Recommendations for "Do you monitor and limit the use of external devices (USB, CDs, etc.) to business need?"
         if answers["externalDevices"] == "no":
@@ -298,15 +298,15 @@ def results():
 
         #Recommendations for "Does the company have an Information asset inventory that is up to date with the relevant information for asset management?"
         if answers["assetInventory"] == "no":
-            recommendations.append("We recommend that your company create an up-to-date information asset inventory to ensure effective asset management. This includes keeping track of all hardware and software assets, as well as any data stored on them. Having an accurate inventory allows a company to properly allocate resources and prioritise security measures. Consider reviewing the ITIL framework for more in depth guidence  more in depth guidence (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>).")
+            recommendations.append("We recommend that your company create an up-to-date information asset inventory to ensure effective asset management. This includes keeping track of all hardware and software assets, as well as any data stored on them. Having an accurate inventory allows a company to properly allocate resources and prioritise security measures. Consider reviewing the ITIL framework for more in depth guidance more in depth guidance (<a href='https://www.itil-docs.com/en-gb/blogs/asset-management/it-asset-management-process'>ITIL - IT Asset Management</a>).")
 
         #Recommendations for "Does the company have network protection measures including monitoring, analysis and control of the network traffic (for example. firewalls, whitelisting, intrusion detection and prevention systems (IDPS)?"
         if answers["networkProtection"] == "no":
-            recommendations.append("It is important for a company to have network protection measures in place, including monitoring, analysis, and control of network traffic. This can be achieved through the use of firewalls, whitelisting, and intrusion detection and prevention systems (IDPS). Implementing these measures can help to protect against cyber threats and ensure the security of the company's network. The (<a href='https://controls-assessment-specification.readthedocs.io/en/stable/control-13/index.html'>CIS Control 13: Network Monitoring and Defense</a>)Control can provide guidence on the implementation of network defencse techniques.")
+            recommendations.append("It is important for a company to have network protection measures in place, including monitoring, analysis, and control of network traffic. This can be achieved through the use of firewalls, whitelisting, and intrusion detection and prevention systems (IDPS). Implementing these measures can help to protect against cyber threats and ensure the security of the company's network. The (<a href='https://controls-assessment-specification.readthedocs.io/en/stable/control-13/index.html'>CIS Control 13: Network Monitoring and Defense</a>)Control can provide guidance on the implementation of network defencse techniques.")
 
         #Recommendations for "Is confidential data encrypted in transit and at rest?"
         if answers["confidentialDataEncryption"] == "no":
-            recommendations.append("Consider encrypting confidential data in transit and at rest. The National Cyber Security Centre can provide guidence on how both can be accomplished (<a href='https://www.ncsc.gov.uk/collection/device-security-guidance/security-principles/protect-data-at-rest-and-in-transit'>NCSC</a>) ")
+            recommendations.append("Consider encrypting confidential data in transit and at rest. The National Cyber Security Centre can provide guidance on how both can be accomplished (<a href='https://www.ncsc.gov.uk/collection/device-security-guidance/security-principles/protect-data-at-rest-and-in-transit'>NCSC</a>) ")
 
         #Recommendations for "Is the principle of least functionality enforced (for example, limiting services, limiting applications, limiting ports, limiting connected devices)?"
         if answers["leastFunctionality"] == "no":
@@ -318,7 +318,7 @@ def results():
            
         #Recommendations for "Relevant threat information is gathered and cybersecurity vulnerability assessments are performed periodically and shared to stakeholders?"
         if answers["vulnerability_assessments"] == "no":
-            recommendations.append("Gathering and sharing relevant threat information and cybersecurity vulnerability assessments can help protect against potential threats. Consider implementing a process for gathering and sharing this information with relevant stakeholders. (<a href='https://www.gov.uk/government/publications/cyber-threat-intelligence-information-sharing/cyber-threat-intelligence-information-sharing-guide'>GOV.uk</a>) provide guidence on this.")
+            recommendations.append("Gathering and sharing relevant threat information and cybersecurity vulnerability assessments can help protect against potential threats. Consider implementing a process for gathering and sharing this information with relevant stakeholders. (<a href='https://www.gov.uk/government/publications/cyber-threat-intelligence-information-sharing/cyber-threat-intelligence-information-sharing-guide'>GOV.uk</a>) provide guidance on this.")
 
         #Recommendations for "A strategy for cyber risk management is established and maintained to implement and perform activities in the risk domain in alignment with the organisation's mission and objectives?"
         if answers["cyber_risk_management"] == "no":
